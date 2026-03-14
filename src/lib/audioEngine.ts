@@ -23,7 +23,7 @@ export class AudioEngine {
     try {
       const T = await import('tone');
       // Some bundlers put everything in .default, others in the root
-      const Tone: any = T.default || T;
+      const Tone: any = (T as any).default || T;
       
       const startFn = Tone.start || (Tone as any).start;
       if (typeof startFn === 'function') {
@@ -70,7 +70,7 @@ export class AudioEngine {
     try {
       await this.ensureInitialized();
       const T = await import('tone');
-      const Tone: any = T.default || T;
+      const Tone: any = (T as any).default || T;
       const NoiseSynth = Tone.NoiseSynth;
       
       if (type === 'kick' && this.drumSynth) this.drumSynth.triggerAttackRelease("C1", "8n");
