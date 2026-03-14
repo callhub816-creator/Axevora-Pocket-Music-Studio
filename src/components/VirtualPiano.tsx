@@ -37,8 +37,9 @@ export default function VirtualPiano({ onBack }: { onBack?: () => void }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-4xl">
-      <div className="flex justify-center items-start h-64 bg-black/40 p-4 rounded-3xl border border-white/10 shadow-inner relative overflow-hidden">
+    <div className="flex flex-col items-center gap-8 w-full max-w-4xl max-w-[100vw] overflow-hidden">
+      <div className="w-full overflow-x-auto pb-4 custom-scrollbar">
+        <div className="flex justify-center items-start h-64 bg-black/40 p-4 rounded-3xl border border-white/10 shadow-inner min-w-[700px] relative">
         {PIANO_KEYS.map((key, idx) => (
           <motion.button
             key={key.note}
@@ -57,6 +58,7 @@ export default function VirtualPiano({ onBack }: { onBack?: () => void }) {
             </span>
           </motion.button>
         ))}
+        </div>
       </div>
       <div className="text-center">
         <p className="text-gray-500 text-sm">Use keys <span className="text-accent-primary">A S D F G H J K</span> for white keys and <span className="text-accent-secondary">W E T Y U</span> for black keys.</p>

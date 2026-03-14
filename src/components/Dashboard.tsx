@@ -57,7 +57,7 @@ export default function Dashboard() {
   return (
     <div className="max-w-7xl mx-auto px-6 pt-12 pb-24 relative z-10">
       {/* Header */}
-      <nav className="flex justify-between items-center mb-16">
+      <nav className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 md:mb-16 gap-6 md:gap-0">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -114,7 +114,7 @@ export default function Dashboard() {
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-col items-center"
         >
-          <div className="w-full flex justify-between items-center mb-12">
+          <div className="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center mb-8 md:mb-12 gap-6 md:gap-0">
             <button 
               onClick={() => setActiveStage(null)}
               className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
@@ -124,12 +124,12 @@ export default function Dashboard() {
               </div>
               Back to Studio
             </button>
-            <div className="text-right">
+            <div className="text-left md:text-right w-full md:w-auto">
               <h2 className="text-4xl font-black">{getStageTitle()}</h2>
               <p className="text-gray-500 italic text-sm">Axevora Pocket Session</p>
             </div>
           </div>
-          <div className="w-full py-12 flex justify-center min-h-[500px]">
+          <div className="w-full py-6 md:py-12 flex justify-center min-h-[400px] md:min-h-[500px] overflow-x-auto">
             {renderActiveStage()}
           </div>
         </motion.div>
@@ -146,13 +146,13 @@ export default function Dashboard() {
                 <span className="text-accent-secondary font-medium tracking-widest text-sm uppercase mb-4 block">
                   Interactive Studio
                 </span>
-                <h2 className="text-5xl font-black mb-6 max-w-2xl leading-tight">
+                <h2 className="text-4xl md:text-5xl font-black mb-6 max-w-2xl leading-tight">
                   No Instrument? <span className="text-gradient">No Problem.</span>
                 </h2>
                 <p className="text-gray-500 text-lg mb-8 max-w-xl">
                   Axevora Pocket puts a full orchestra in your browser. Start with the Rhythm Game or jump into the Virtual Studio.
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

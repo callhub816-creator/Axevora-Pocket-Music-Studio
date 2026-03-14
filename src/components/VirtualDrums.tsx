@@ -28,8 +28,8 @@ export default function VirtualDrums({ onBack }: { onBack?: () => void }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-12 w-full max-w-4xl">
-      <div className="flex gap-8 justify-center items-end h-80">
+    <div className="flex flex-col items-center gap-8 md:gap-12 w-full max-w-4xl max-w-[100vw]">
+      <div className="flex flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center items-center md:items-end min-h-[300px] md:h-80 w-full px-4">
         {DRUMS.map((drum) => (
           <motion.button
             key={drum.name}
@@ -37,13 +37,13 @@ export default function VirtualDrums({ onBack }: { onBack?: () => void }) {
             whileTap={{ scale: 0.9 }}
             onClick={() => playDrum(drum.type)}
             className={`
-              w-48 h-48 rounded-full bg-gradient-to-b ${drum.color}
+              w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-b ${drum.color}
               border-4 border-white/20 shadow-2xl flex flex-col items-center justify-center gap-2
               relative group
             `}
           >
             <div className="absolute inset-2 border-2 border-white/10 rounded-full pointer-events-none" />
-            <span className="font-black text-xl tracking-tighter uppercase">{drum.name}</span>
+            <span className="font-black text-sm md:text-xl tracking-tighter uppercase">{drum.name}</span>
             <span className="bg-black/30 px-3 py-1 rounded-full text-[10px] font-bold">{drum.key}</span>
           </motion.button>
         ))}

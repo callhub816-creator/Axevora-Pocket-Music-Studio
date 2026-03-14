@@ -183,7 +183,7 @@ const RhythmGame: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center gap-6 relative">
+        <div className="flex flex-col items-center gap-4 md:gap-6 relative w-full max-w-lg px-2">
             {onBack && (
                 <button 
                     onClick={onBack}
@@ -192,12 +192,12 @@ const RhythmGame: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
                     QUIT GAME
                 </button>
             )}
-            <div className="glass-panel p-4 overflow-hidden border-2 border-accent-primary/30">
-                <div ref={gameContainer} className="rounded-xl overflow-hidden shadow-2xl" />
+            <div className="glass-panel p-2 md:p-4 overflow-hidden border-2 border-accent-primary/30 w-full">
+                <div ref={gameContainer} className="rounded-xl overflow-hidden shadow-2xl w-full aspect-[5/6] max-h-[600px]" />
             </div>
-            <div className="flex gap-4 text-center">
+            <div className="flex gap-2 md:gap-4 text-center">
                 {['A', 'S', 'D', 'F'].map(key => (
-                    <div key={key} className="w-12 h-12 glass-panel flex items-center justify-center font-bold text-accent-secondary border-b-4 border-accent-secondary/50">
+                    <div key={key} className="w-10 h-10 md:w-12 md:h-12 glass-panel flex items-center justify-center font-bold text-accent-secondary border-b-2 md:border-b-4 border-accent-secondary/50">
                         {key}
                     </div>
                 ))}
